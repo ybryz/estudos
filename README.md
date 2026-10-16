@@ -1,14 +1,14 @@
-# 📚 Estudos
+# Estudos
 
 Repositório onde registro a minha jornada de estudos em **Ciência da Computação** e **Inteligência Artificial**.
 
-## 🚀 Sobre
+## Sobre
 
 - 🎓 Cursando **Ciência da Computação** no **Centro Universitário Barão de Mauá**
 - 🤖 Trabalhando como **AI Engineer**
 - 📝 Cada demanda de estudo ganha uma pasta numerada, com um README explicando o que aprendi
 
-## 🗂️ Demandas de estudo
+##  Demandas de estudo
 
 | # | Demanda | Pasta | Status |
 |---|---------|-------|--------|
@@ -16,7 +16,7 @@ Repositório onde registro a minha jornada de estudos em **Ciência da Computaç
 
 > Novas demandas serão adicionadas a esta tabela conforme eu for estudando.
 
-## 🛠️ Tecnologias
+##  Tecnologias
 
 <p>
   <img src="https://skillicons.dev/icons?i=python,cpp,java,html,git,github,vscode&perline=10" />
