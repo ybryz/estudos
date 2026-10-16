@@ -1,4 +1,4 @@
-# Estudos
+# Estudos📚
 
 Repositório onde registro a minha jornada de estudos em **Ciência da Computação** e **Inteligência Artificial**.
 
