@@ -34,14 +34,11 @@ Depois, um `claude` em cada pasta. Cada terminal criou **um arquivo diferente** 
 `03-claude-code/` (`terminal-a.md` e `terminal-b.md`), fez o commit na sua branch e
 enviou com `git push`. Cada branch virou um pull request, e os dois foram mergeados.
 
-## Prints dos terminais
-Terminal A (`Estudos-terminal-a`, branch `claude/terminal-a`):
+## Print dos terminais
+Os dois terminais do Claude Code abertos ao mesmo tempo: um em `Estudos-terminal-a`
+(branch `claude/terminal-a`) e o outro em `Estudos-terminal-b` (branch `claude/terminal-b`).
 
-![Terminal A](prints/terminal-a.png)
-
-Terminal B (`Estudos-terminal-b`, branch `claude/terminal-b`):
-
-![Terminal B](prints/terminal-b.png)
+![Os dois terminais do Claude Code ao mesmo tempo](prints/terminais.png)
 
 ## Comandos
 ```bash
