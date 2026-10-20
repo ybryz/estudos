@@ -13,6 +13,7 @@ Repositório onde registro a minha jornada de estudos em **Ciência da Computaç
 | # | Demanda | Pasta | Status |
 |---|---------|-------|--------|
 | 01 | GitHub com perfil arrumado, README caprichado e o repositório `estudos` | [01-github](./01-github) | ✅ Concluído |
+| 04 | n8n com chatbot de menu (loja inventada), rodando no PC com Docker | [04-n8n-whatsapp-menu](./04-n8n-whatsapp-menu) | 🚧 Workflow testado; falta rodar no Docker |
 
 > Novas demandas serão adicionadas a esta tabela conforme eu for estudando.
 
