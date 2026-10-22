@@ -10,6 +10,14 @@ export function normalizarCep(texto) {
 export function criarApp({ buscarCep = buscarNoViaCep } = {}) {
   const app = express();
 
+  // CORS: o front roda em outra porta (localhost:5173) e o navegador só deixa a página
+  // ler a resposta deste back-end (localhost:3000) se ele avisar que permite.
+  // Os dados são públicos e não há login, então liberar qualquer origem é seguro aqui.
+  app.use((req, res, next) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    next();
+  });
+
   // GET /cep/:cep -> { rua, bairro, cidade, estado }
   app.get('/cep/:cep', async (req, res) => {
     const cep = normalizarCep(req.params.cep);

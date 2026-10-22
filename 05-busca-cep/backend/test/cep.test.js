@@ -41,6 +41,15 @@ test('200: devolve só rua, bairro, cidade e estado', async () => {
   });
 });
 
+test('CORS: respostas liberam a origem do front-end', async () => {
+  await comApp(async () => PRACA_DA_SE, async (get) => {
+    for (const caminho of ['/cep/01001000', '/cep/123']) {
+      const r = await get(caminho);
+      assert.equal(r.headers.get('access-control-allow-origin'), '*', caminho);
+    }
+  });
+});
+
 test('400: CEP inválido nem chega no ViaCEP', async () => {
   let chamou = false;
   await comApp(async () => { chamou = true; }, async (get) => {
