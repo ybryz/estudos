@@ -9,7 +9,7 @@
     "start": "node src/server.js",
     "test": "node --test",
     "db:preparar": "prisma migrate deploy && prisma generate",
-    "db:studio": "prisma studio"
+    "db:studio": "prisma studio --url file://./prisma/dev.db"
   },
   "engines": {
     "node": ">=22.18"
