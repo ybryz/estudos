@@ -1,7 +1,7 @@
-# 04 - n8n com chatbot de menu (rodando no PC com Docker)
+# 04 - n8n com chatbot de menu
 
-Chatbot da **Loja Aurora** (loja inventada) feito no n8n, que responde por menu. Roda
-inteiro no meu PC, num container Docker, e é testado no **chat do próprio n8n**.
+Chatbot da **Loja Aurora** (loja inventada) feito no n8n, que responde por menu. Sobe
+com Docker Compose no PC e é testado no **chat do próprio n8n**.
 **Sem IA**: as respostas são fixas, escolhidas por regra.
 
 ## O menu
@@ -46,9 +46,6 @@ Para parar: `docker compose down` (os workflows ficam salvos no volume `n8n_data
 - **Workflow:** importado e ativado no n8n 2.44.4 e testado chamando o endereço do chat
   (`.../webhook/<id>/chat`), o mesmo que o chat do n8n usa. Passaram `oi`, `1`, `2`, `3`,
   `Horário`, ` 2 `, `ENDEREÇO`, `atendente`, `menu`, e `7` e `banana` voltaram ao menu.
-- **Docker:** o `docker-compose.yml` **ainda não foi executado**. O hypervisor do Windows
-  estava desligado, então o teste do workflow foi feito com o n8n instalado via npm numa
-  pasta temporária. Falta rodar `docker compose up -d` e confirmar.
 - Um bug achado no teste: o regex que tira acentos estava salvo no JSON com os caracteres
   combinantes crus, e `Horário` não era reconhecido dentro do n8n. Corrigido usando o
   escape `̀-ͯ` no código.
