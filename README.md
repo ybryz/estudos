@@ -16,6 +16,7 @@ Repositório onde registro a minha jornada de estudos em **Ciência da Computaç
 | 02 | Git: resolver um conflito de merge entre duas branches | [02-git](./02-git) | ✅ Concluído |
 | 03 | Claude Code com vários terminais ao mesmo tempo (git worktree) | [03-claude-code](./03-claude-code) | ✅ Concluído |
 | 04 | n8n com chatbot de menu (loja inventada) | [04-n8n-whatsapp-menu](./04-n8n-whatsapp-menu) | ✅ Concluído |
+| 05 | Front-end e back-end com o Busca CEP (uma página que pede o endereço ao back-end) | [05-busca-cep](./05-busca-cep) | ✅ Concluído |
 
 > Novas demandas serão adicionadas a esta tabela conforme eu for estudando.
 
