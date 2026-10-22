@@ -4,9 +4,11 @@
     {
       "parameters": {
         "public": true,
+        "initialMessages": "Olá! Digite oi para ver o menu.",
         "options": {
           "title": "Loja Aurora",
           "subtitle": "Atendimento automático",
+          "inputPlaceholder": "Digite sua mensagem...",
           "loadPreviousSession": "notSupported"
         }
       },
@@ -89,7 +91,7 @@
       "parameters": {
         "assignments": {
           "assignments": [
-            { "id": "r1", "name": "output", "type": "string", "value": "🕒 *Horário de funcionamento*\nSegunda a sexta: 9h às 18h\nSábado: 9h às 13h\nDomingo e feriados: fechado\n\nDigite *menu* para voltar às opções." }
+            { "id": "r1", "name": "output", "type": "string", "value": "🕒 *Horário de funcionamento*\n\nSegunda a sexta: 9h às 18h\n\nSábado: 9h às 13h\n\nDomingo e feriados: fechado\n\nDigite *menu* para voltar às opções." }
           ]
         },
         "options": {}
@@ -104,7 +106,7 @@
       "parameters": {
         "assignments": {
           "assignments": [
-            { "id": "r2", "name": "output", "type": "string", "value": "📍 *Endereço*\nLoja Aurora\nRua das Palmeiras, 123 - Centro\nSão Paulo/SP - CEP 01000-000\nPerto da praça central.\n\nDigite *menu* para voltar às opções." }
+            { "id": "r2", "name": "output", "type": "string", "value": "📍 *Endereço*\n\nLoja Aurora\n\nRua das Palmeiras, 123 - Centro\n\nSão Paulo/SP - CEP 01000-000\n\nPerto da praça central.\n\nDigite *menu* para voltar às opções." }
           ]
         },
         "options": {}
@@ -119,7 +121,7 @@
       "parameters": {
         "assignments": {
           "assignments": [
-            { "id": "r3", "name": "output", "type": "string", "value": "👤 *Falar com uma pessoa*\nCerto! Já avisamos a nossa equipe. Um atendente responde você em instantes, em horário comercial.\n\nDigite *menu* para voltar às opções." }
+            { "id": "r3", "name": "output", "type": "string", "value": "👤 *Falar com uma pessoa*\n\nCerto! Já avisamos a nossa equipe. Um atendente responde você em instantes, em horário comercial.\n\nDigite *menu* para voltar às opções." }
           ]
         },
         "options": {}
@@ -134,7 +136,7 @@
       "parameters": {
         "assignments": {
           "assignments": [
-            { "id": "r4", "name": "output", "type": "string", "value": "Olá! Bem-vindo(a) à *Loja Aurora* 🌟\nComo posso ajudar? Responda com o número:\n\n*1* - Horário de funcionamento\n*2* - Endereço\n*3* - Falar com uma pessoa" }
+            { "id": "r4", "name": "output", "type": "string", "value": "Olá! Bem-vindo(a) à *Loja Aurora* 🌟\n\nComo posso ajudar? Responda com o número:\n\n*1* - Horário de funcionamento\n\n*2* - Endereço\n\n*3* - Falar com uma pessoa" }
           ]
         },
         "options": {}
@@ -149,7 +151,7 @@
       "parameters": {
         "assignments": {
           "assignments": [
-            { "id": "r5", "name": "output", "type": "string", "value": "Não entendi essa opção 😅\nVamos tentar de novo? Responda com o número:\n\n*1* - Horário de funcionamento\n*2* - Endereço\n*3* - Falar com uma pessoa" }
+            { "id": "r5", "name": "output", "type": "string", "value": "Não entendi essa opção 😅\n\nVamos tentar de novo? Responda com o número:\n\n*1* - Horário de funcionamento\n\n*2* - Endereço\n\n*3* - Falar com uma pessoa" }
           ]
         },
         "options": {}

@@ -41,19 +41,46 @@ docker compose up -d
 Para parar: `docker compose down` (os workflows ficam salvos no volume `n8n_data`).
 `docker compose down -v` apaga também os dados.
 
+## Conversa de teste (prints)
+
+Prints tirados do chat do n8n com o workflow ativo.
+
+**Escolhendo as opções 1, 2 e 3**
+
+<img src="prints/conversa-opcoes.png" alt="Conversa no chat do n8n: oi, 1, 2 e 3, com as respostas de horário, endereço e falar com uma pessoa" width="360">
+
+**Opção errada (`7` e `banana`) volta ao menu**
+
+<img src="prints/conversa-opcao-errada.png" alt="Conversa no chat do n8n: oi, 7, banana e menu, com 'Não entendi essa opção' e o menu de novo" width="360">
+
 ## Como foi testado
 
-- **Workflow:** importado e ativado no n8n 2.44.4 e testado chamando o endereço do chat
-  (`.../webhook/<id>/chat`), o mesmo que o chat do n8n usa. Passaram `oi`, `1`, `2`, `3`,
-  `Horário`, ` 2 `, `ENDEREÇO`, `atendente`, `menu`, e `7` e `banana` voltaram ao menu.
+- **Workflow:** importado e ativado no n8n 2.44.4 e testado no chat do n8n e chamando o
+  endereço do chat (`.../webhook/<id>/chat`). Passaram `oi`, `1`, `2`, `3`, `Horário`,
+  ` 2 `, `ENDEREÇO`, `atendente`, `menu`, e `7` e `banana` voltaram ao menu.
+- Outro ajuste achado nos prints: o chat do n8n lê as respostas como markdown, e uma única
+  quebra de linha some. Por isso cada linha das respostas é separada por uma linha em
+  branco; assim o menu aparece uma opção por linha.
 - Um bug achado no teste: o regex que tira acentos estava salvo no JSON com os caracteres
   combinantes crus, e `Horário` não era reconhecido dentro do n8n. Corrigido usando o
   escape `̀-ͯ` no código.
 
 ## Como o workflow funciona
 
-```
-Chat  ->  Descobre opcao (Code)  ->  Qual opcao (Switch)  ->  Resposta (Set)
+```mermaid
+flowchart LR
+    A([Chat<br/>mensagem do cliente]) --> B[Descobre opcao<br/>Code: normaliza o texto]
+    B --> C{Qual opcao<br/>Switch}
+    C -->|horario| D[Resposta horario]
+    C -->|endereco| E[Resposta endereco]
+    C -->|pessoa| F[Resposta pessoa]
+    C -->|menu| G[Menu]
+    C -->|fallback: qualquer outra coisa| H[Opcao invalida<br/>Não entendi + menu]
+    D --> I([Resposta no chat])
+    E --> I
+    F --> I
+    G --> I
+    H --> I
 ```
 
 1. **Chat** (Chat Trigger): recebe a mensagem em `chatInput`.
@@ -86,3 +113,4 @@ Isso não foi montado neste estudo; o teste foi feito pelo chat do n8n.
 |---------|---------|
 | `docker-compose.yml` | sobe o n8n na porta 5678, com volume para guardar os dados |
 | `workflow-menu-loja.json` | o workflow, para importar no n8n |
+| `prints/` | prints da conversa no chat do n8n |
