@@ -1,11 +1,6 @@
 import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
-import { execFileSync } from 'node:child_process';
-import { mkdtempSync, rmSync } from 'node:fs';
-import { createRequire } from 'node:module';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
-import { criarPrisma } from '../src/db.js';
+import { criarBancoTemporario } from '../apoio-testes/banco-temporario.js';
 
 const PRACA_DA_SE = {
   cep: '01001000',
@@ -15,25 +10,15 @@ const PRACA_DA_SE = {
   estado: 'São Paulo',
 };
 
-let pasta;
+let banco;
 let prisma;
 
-// Cada execução usa um banco novo num arquivo temporário, criado pelas migrações de verdade.
 before(() => {
-  pasta = mkdtempSync(join(tmpdir(), 'busca-cep-'));
-  const url = `file:${join(pasta, 'teste.db').replaceAll('\\', '/')}`;
-  const prismaCli = createRequire(import.meta.url).resolve('prisma/build/index.js');
-  execFileSync(process.execPath, [prismaCli, 'migrate', 'deploy'], {
-    env: { ...process.env, DATABASE_URL: url },
-    stdio: 'ignore',
-  });
-  prisma = criarPrisma(url);
+  banco = criarBancoTemporario();
+  prisma = banco.prisma;
 });
 
-after(async () => {
-  await prisma.$disconnect();
-  rmSync(pasta, { recursive: true, force: true });
-});
+after(() => banco.apagar());
 
 test('uma busca que deu certo aponta para o endereço', async () => {
   const endereco = await prisma.endereco.create({ data: PRACA_DA_SE });

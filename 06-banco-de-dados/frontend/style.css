@@ -72,3 +72,22 @@ button:disabled { opacity: 0.6; cursor: wait; }
   border: 1px solid #f0bcbc;
   border-radius: 8px;
 }
+
+.historico { margin-top: 1.75rem; }
+.historico h2 { margin: 0 0 0.6rem; font-size: 1.05rem; }
+.historico ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.5rem; }
+
+.busca {
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #dfe2ec;
+  border-left-width: 4px;
+  border-radius: 8px;
+}
+.busca.certo { border-left-color: #3b9b57; }
+.busca.erro-busca { border-left-color: #c94a4a; }
+.busca-topo { display: flex; justify-content: space-between; gap: 0.5rem; }
+.situacao { font-size: 0.8rem; font-weight: 600; }
+.certo .situacao { color: #2d5a3a; }
+.erro-busca .situacao { color: #8a1c1c; }
+.busca-detalhe { margin-top: 0.15rem; font-size: 0.85rem; color: #5b6075; }
+.historico-vazio { color: #5b6075; font-size: 0.9rem; }

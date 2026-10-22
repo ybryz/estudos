@@ -1,7 +1,12 @@
-import { test } from 'node:test';
+import { test, before, after } from 'node:test';
 import assert from 'node:assert/strict';
 import { criarApp, normalizarCep } from '../src/app.js';
 import { CepNaoEncontrado, ViaCepIndisponivel } from '../src/viacep.js';
+import { criarBancoTemporario } from '../apoio-testes/banco-temporario.js';
+
+let banco;
+before(() => { banco = criarBancoTemporario(); });
+after(() => banco.apagar());
 
 const PRACA_DA_SE = {
   rua: 'Praça da Sé',
@@ -10,9 +15,10 @@ const PRACA_DA_SE = {
   estado: 'São Paulo',
 };
 
-// Sobe o app numa porta livre, com o ViaCEP trocado por uma função de mentira.
+// Sobe o app numa porta livre, com o ViaCEP trocado por uma função de mentira
+// e com um banco temporário.
 async function comApp(buscarCep, fn) {
-  const servidor = criarApp({ buscarCep }).listen(0);
+  const servidor = criarApp({ prisma: banco.prisma, buscarCep }).listen(0);
   const { port } = servidor.address();
   try {
     await fn((caminho) => fetch(`http://localhost:${port}${caminho}`));
