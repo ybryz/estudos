@@ -31,7 +31,7 @@ git worktree add ../Estudos-terminal-b -b claude/terminal-b
 ```
 
 Depois, um `claude` em cada pasta. Cada terminal criou **um arquivo diferente** em
-`03-claude-code/` (`terminal-a.md` e `terminal-b.md`), fez o commit na sua branch e
+`03-n8n-com-um-chatbot/` (`terminal-a.md` e `terminal-b.md`), fez o commit na sua branch e
 enviou com `git push`. Cada branch virou um pull request, e os dois foram mergeados.
 
 ## Print dos terminais
@@ -67,7 +67,7 @@ git worktree prune                         # limpa registros de pastas apagadas 
 
 ## Como não mexer no mesmo arquivo
 1. **Divida o trabalho por arquivo ou pasta antes de começar** e diga isso a cada Claude
-   Code no primeiro prompt ("mexa só em `03-claude-code/terminal-a.md`"). Neste estudo,
+   Code no primeiro prompt ("mexa só em `03-n8n-com-um-chatbot/terminal-a.md`"). Neste estudo,
    cada terminal ficou com um arquivo.
 2. Se dois terminais precisam do mesmo arquivo, faça um terminal de cada vez ou separe o
    arquivo em dois.
