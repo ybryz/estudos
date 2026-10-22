@@ -7,12 +7,19 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "node --test"
+    "test": "node --test",
+    "db:preparar": "prisma migrate deploy && prisma generate",
+    "db:studio": "prisma studio"
   },
   "engines": {
-    "node": ">=20"
+    "node": ">=22.18"
   },
   "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.10.1",
+    "@prisma/client": "^7.10.1",
     "express": "^5.3.0"
+  },
+  "devDependencies": {
+    "prisma": "^7.10.1"
   }
 }

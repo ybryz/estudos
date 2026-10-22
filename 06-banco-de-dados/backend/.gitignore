@@ -1,1 +1,6 @@
 node_modules/
+
+# Prisma: cliente gerado e banco local (recriados com npm run db:preparar)
+/src/generated/
+/prisma/*.db
+/prisma/*.db-journal
