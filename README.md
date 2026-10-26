@@ -8,7 +8,7 @@ Repositório onde registro a minha jornada de estudos em **Ciência da Computaç
 - 🤖 Trabalhando como **AI Engineer**
 - 📝 Cada demanda de estudo ganha uma pasta numerada, com um README explicando o que aprendi
 
-##  Demandas de estudo
+##  Demandas de estudo IA
 
 | # | Demanda | Pasta | Status |
 |---|---------|-------|--------|
