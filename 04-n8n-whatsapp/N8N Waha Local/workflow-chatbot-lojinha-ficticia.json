@@ -1,0 +1,472 @@
+{
+  "id": "g53EKaUaaILV5WyI",
+  "name": "Chatbot Lojinha Fictícia",
+  "description": null,
+  "active": false,
+  "isArchived": false,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "webhook",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.2,
+      "position": [
+        0,
+        0
+      ],
+      "id": "31ae3c83-de09-4abc-90bf-9ef0c13ea88a",
+      "name": "Webhook",
+      "webhookId": "1ab25744-02d4-4d96-9d19-bd901a54170e"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "a1",
+              "name": "session",
+              "value": "={{ $json.body.session }}",
+              "type": "string"
+            },
+            {
+              "id": "a2",
+              "name": "chatId",
+              "value": "={{ $json.body.payload.from }}",
+              "type": "string"
+            },
+            {
+              "id": "a3",
+              "name": "pushName",
+              "value": "={{ $json.body.payload._data?.Info?.PushName ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "a4",
+              "name": "payload_id",
+              "value": "={{ $json.body.payload.id }}",
+              "type": "string"
+            },
+            {
+              "id": "a5",
+              "name": "event",
+              "value": "={{ $json.body.event }}",
+              "type": "string"
+            },
+            {
+              "id": "a6",
+              "name": "message",
+              "value": "={{ $json.body.payload.body ?? '' }}",
+              "type": "string"
+            },
+            {
+              "id": "a7",
+              "name": "fromME",
+              "value": "={{ $json.body.payload.fromMe === true }}",
+              "type": "boolean"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.5,
+      "position": [
+        208,
+        0
+      ],
+      "id": "fdd3f35a-01da-4390-8f06-6a3fcb60a908",
+      "name": "Dados"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.event }}",
+              "rightValue": "message",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "c2",
+              "leftValue": "={{ $json.fromME }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "false",
+                "singleValue": true
+              }
+            },
+            {
+              "id": "c3",
+              "leftValue": "={{ $json.chatId }}",
+              "rightValue": "status@broadcast",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        416,
+        0
+      ],
+      "id": "bafffafb-7b04-4180-a947-0236937acd00",
+      "name": "Mensagem recebida?"
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Seen",
+        "session": "={{ $('Dados').item.json.session }}",
+        "chatId": "={{ $('Dados').item.json.chatId }}",
+        "messageId": "={{ $('Dados').item.json.payload_id }}",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-waha.WAHA",
+      "typeVersion": 202411,
+      "position": [
+        656,
+        -96
+      ],
+      "id": "1e941d4a-442d-43f9-aeb2-33dc60bfa57f",
+      "name": "Send Seen",
+      "credentials": {
+        "wahaApi": {
+          "id": "ducMHheCvzK4jdVT",
+          "name": "WAHA account"
+        }
+      },
+      "onError": "continueRegularOutput"
+    },
+    {
+      "parameters": {
+        "rules": {
+          "values": [
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "o1",
+                    "leftValue": "={{ $json.acao }}",
+                    "rightValue": "1",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "1 - Horário"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "o2",
+                    "leftValue": "={{ $json.acao }}",
+                    "rightValue": "2",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "2 - Endereço"
+            },
+            {
+              "conditions": {
+                "options": {
+                  "caseSensitive": true,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 2
+                },
+                "conditions": [
+                  {
+                    "id": "o3",
+                    "leftValue": "={{ $json.acao }}",
+                    "rightValue": "3",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              },
+              "renameOutput": true,
+              "outputKey": "3 - Pessoa"
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "extra",
+          "renameFallbackOutput": "Opção inválida"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.2,
+      "position": [
+        1024,
+        -112
+      ],
+      "id": "0f71165b-e641-4d82-b45e-b29958f454e5",
+      "name": "Opção"
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Text",
+        "session": "={{ $('Dados').item.json.session }}",
+        "chatId": "={{ $('Dados').item.json.chatId }}",
+        "text": "🕐 *Horário de funcionamento*\nSegunda a sexta: 9h às 18h\nSábado: 9h às 13h\nDomingo e feriados: fechado\n\nSe precisar de mais alguma coisa, é só mandar uma mensagem. 😊",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-waha.WAHA",
+      "typeVersion": 202411,
+      "position": [
+        1328,
+        -384
+      ],
+      "id": "794f8eb3-7110-4768-92de-9abaf31890c4",
+      "name": "Resposta horário",
+      "credentials": {
+        "wahaApi": {
+          "id": "ducMHheCvzK4jdVT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Text",
+        "session": "={{ $('Dados').item.json.session }}",
+        "chatId": "={{ $('Dados').item.json.chatId }}",
+        "text": "📍 *Nosso endereço*\nRua das Flores, 123 – Centro\nPerto da Praça Central. Estacionamento ao lado da loja.\n\nSe precisar de mais alguma coisa, é só mandar uma mensagem. 😊",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-waha.WAHA",
+      "typeVersion": 202411,
+      "position": [
+        1328,
+        -240
+      ],
+      "id": "5b0c7d36-2d6a-4d0a-9a43-6f6f2f2a1b02",
+      "name": "Resposta endereço",
+      "credentials": {
+        "wahaApi": {
+          "id": "ducMHheCvzK4jdVT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Text",
+        "session": "={{ $('Dados').item.json.session }}",
+        "chatId": "={{ $('Dados').item.json.chatId }}",
+        "text": "👤 Certo! Vou chamar um atendente para falar com você.\nAguarde um momento: respondemos em breve (segunda a sexta, 9h às 18h; sábado, 9h às 13h).",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-waha.WAHA",
+      "typeVersion": 202411,
+      "position": [
+        1328,
+        -96
+      ],
+      "id": "6d2f8a14-4c8b-4f1e-9a35-2b7c1d9e0f03",
+      "name": "Resposta falar com pessoa",
+      "credentials": {
+        "wahaApi": {
+          "id": "ducMHheCvzK4jdVT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Text",
+        "session": "={{ $('Dados').item.json.session }}",
+        "chatId": "={{ $('Dados').item.json.chatId }}",
+        "text": "=Olá{{ $('Dados').item.json.pushName ? ', ' + $('Dados').item.json.pushName : '' }}! 👋\nBem-vindo(a) à *Lojinha Fictícia*.\n\nComo posso ajudar? Digite o número da opção:\n\n*1* - Horário de funcionamento\n*2* - Endereço\n*3* - Falar com uma pessoa",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-waha.WAHA",
+      "typeVersion": 202411,
+      "position": [
+        864,
+        -80
+      ],
+      "id": "7c1e2f48-3b7e-4e1b-8b54-1d2c3e4f5a03",
+      "name": "Boas-vindas e menu",
+      "credentials": {
+        "wahaApi": {
+          "id": "ducMHheCvzK4jdVT",
+          "name": "WAHA account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "Chatting",
+        "operation": "Send Text",
+        "session": "={{ $('Dados').item.json.session }}",
+        "chatId": "={{ $('Dados').item.json.chatId }}",
+        "text": "Desculpe, não entendi essa opção. 😅\nEscolha uma das opções abaixo, digitando só o número:\n\n*1* - Horário de funcionamento\n*2* - Endereço\n*3* - Falar com uma pessoa",
+        "requestOptions": {}
+      },
+      "type": "n8n-nodes-waha.WAHA",
+      "typeVersion": 202411,
+      "position": [
+        1344,
+        112
+      ],
+      "id": "8e3a4b59-5d9c-4a2f-8c46-3c8d2e0a1b04",
+      "name": "Opção inválida e menu",
+      "credentials": {
+        "wahaApi": {
+          "id": "ducMHheCvzK4jdVT",
+          "name": "WAHA account"
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Dados",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Dados": {
+      "main": [
+        [
+          {
+            "node": "Mensagem recebida?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Mensagem recebida?": {
+      "main": [
+        [
+          {
+            "node": "Send Seen",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        []
+      ]
+    },
+    "Send Seen": {
+      "main": [
+        [
+          {
+            "node": "Boas-vindas e menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Opção": {
+      "main": [
+        [
+          {
+            "node": "Resposta horário",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Resposta endereço",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Resposta falar com pessoa",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Opção inválida e menu",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Boas-vindas e menu": {
+      "main": [
+        [
+          {
+            "node": "Opção",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "nodeGroups": [],
+  "tags": []
+}
