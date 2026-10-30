@@ -12,24 +12,17 @@ a ele é feito pelo **Prisma**, que é o que os nossos projetos usam.
 
 ## Como rodar
 
-Precisa do Node 22.18 ou mais novo. São dois programas (dois terminais), os dois dentro da
-pasta `06-banco-de-dados`:
+Precisa do Node 22.18 ou mais novo. Dentro da pasta `06-banco-de-dados`:
 
 ```bash
-# terminal 1: o back-end (porta 3000)
+# back-end (porta 3000)
 cd backend
 npm install
 npm run db:preparar   # cria o arquivo do banco e gera o cliente do Prisma
 npm start
 ```
 
-```bash
-# terminal 2: o front-end (porta 5173)
-cd frontend
-npm start
-```
-
-Abra http://localhost:5173 e faça algumas buscas (por exemplo `01001-000`, `01310-100` e
+Depois abra o `frontend/index.html` no navegador e faça algumas buscas (por exemplo `01001-000`, `01310-100` e
 `99999999`). A lista **Últimas buscas** aparece embaixo do campo.
 
 Para olhar o banco por dentro:
@@ -38,9 +31,6 @@ Para olhar o banco por dentro:
 cd backend
 npm run db:studio     # abre o Prisma Studio
 ```
-
-Os testes rodam com `npm test`, dentro de `backend`. Cada teste usa um banco temporário, então
-o `dev.db` de verdade nunca é mexido por eles.
 
 ## O que é um banco de dados
 
@@ -122,16 +112,13 @@ pedido de "o mesmo CEP não vira dois endereços".
 1. A pessoa busca `01001-000`. O back-end consulta o ViaCEP, como no estudo 05.
 2. **Deu certo:** o back-end procura na tabela `Endereco` um CEP igual. Se não existe, cria a
    linha; se já existe, só atualiza. Depois cria uma linha em `Busca` com `deuCerto = true`
-   e o `enderecoId` desse endereço (isso é o `upsert` do Prisma, em `src/historico.js`).
+   e o `enderecoId` desse endereço (isso é o `upsert` do Prisma, em `src/server.js`).
 3. **Não deu certo** (CEP que não existe ou ViaCEP fora do ar): cria só a linha em `Busca`,
    com `deuCerto = false` e `enderecoId` vazio.
 4. CEP escrito errado (menos de 8 números, por exemplo) é recusado antes de chegar no ViaCEP
    e **não** entra no histórico, porque não chegou a ser uma consulta.
 5. A página pede `GET /historico` ao back-end, que lê as 10 últimas linhas de `Busca`
    (ordenadas por `criadaEm`, da mais nova para a mais antiga) já com o endereço de cada uma.
-
-Se o banco der erro na hora de gravar, o back-end registra o erro no terminal e a busca
-continua respondendo normalmente: o histórico não pode derrubar a pesquisa.
 
 ## Prisma: do desenho ao banco
 
@@ -147,17 +134,17 @@ continua respondendo normalmente: o histórico não pode derrubar a pesquisa.
 ## Prints do Prisma Studio
 
 O Prisma Studio é uma tela do Prisma para olhar e editar o banco. Os dados abaixo são de
-teste (CEPs públicos): quatro CEPs que deram certo (dois deles buscados duas vezes) e dois que
+teste (CEPs públicos): seis CEPs que deram certo (dois deles buscados duas vezes) e dois que
 não existem.
 
 **Tabela `Busca`:** repare no `enderecoId` vazio (`NULL`) nas buscas que não deram certo
 (`deuCerto` = 0) e no mesmo `enderecoId` repetido nas duas buscas do mesmo CEP.
 
-<img src="prints/prisma-studio-busca.png" alt="Prisma Studio mostrando a tabela Busca com 8 linhas" width="900">
+<img src="prints/prisma-studio-busca.png" alt="Prisma Studio mostrando a tabela Busca com 10 linhas" width="900">
 
 **Tabela `Endereco`:** uma linha só por CEP, mesmo que ele tenha sido buscado várias vezes.
 
-<img src="prints/prisma-studio-endereco.png" alt="Prisma Studio mostrando a tabela Endereco com 4 linhas" width="900">
+<img src="prints/prisma-studio-endereco.png" alt="Prisma Studio mostrando a tabela Endereco com 6 linhas" width="900">
 
 **Visualizer:** o desenho das duas tabelas feito pelo próprio Prisma Studio. A linha pontilhada
 entre `Endereco` e `Busca` é a chave estrangeira `enderecoId`. A tabela `_prisma_migrations`
@@ -165,7 +152,7 @@ embaixo é do Prisma, para controlar quais migrações já rodaram.
 
 <img src="prints/prisma-studio-visualizer.png" alt="Visualizer do Prisma Studio com as tabelas Endereco e Busca ligadas" width="900">
 
-Uma curiosidade que aparece no print: os `id` da tabela `Endereco` pulam (1, 2, 4, 5). Isso
+Uma curiosidade que aparece no print: os `id` da tabela `Endereco` pulam (1, 2, 3, 4, 5, 7). Isso
 acontece porque, toda vez que busco um CEP que já existe, o `upsert` gasta um número de `id`
 antes de perceber que só precisa atualizar a linha. Não tem problema: o `id` serve só para
 identificar, não precisa ser uma sequência sem buracos.
