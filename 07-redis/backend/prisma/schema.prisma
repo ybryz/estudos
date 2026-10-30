@@ -1,0 +1,36 @@
+// Banco do Busca CEP: duas tabelas ligadas.
+//   Endereco -> um registro por CEP (o mesmo CEP nunca vira dois endereços).
+//   Busca    -> uma linha por pesquisa feita; se deu certo, aponta para o Endereco.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model Endereco {
+  id     Int    @id @default(autoincrement())
+  cep    String @unique
+  rua    String
+  bairro String
+  cidade String
+  estado String
+
+  buscas Busca[]
+}
+
+model Busca {
+  id         Int      @id @default(autoincrement())
+  cep        String
+  criadaEm   DateTime @default(now())
+  deuCerto   Boolean
+  enderecoId Int?
+
+  // Só as buscas que deram certo têm endereço; as que falharam ficam com enderecoId vazio.
+  endereco Endereco? @relation(fields: [enderecoId], references: [id])
+
+  @@index([criadaEm])
+}

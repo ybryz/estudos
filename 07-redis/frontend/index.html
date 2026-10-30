@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Busca CEP</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="cartao">
+    <h1>Busca CEP</h1>
+    <p class="subtitulo">Digite um CEP e veja o endereço.</p>
+
+    <form id="formulario" novalidate>
+      <label for="cep">CEP</label>
+      <div class="linha">
+        <input id="cep" name="cep" type="text" inputmode="numeric" autocomplete="off"
+               placeholder="01001-000" maxlength="9" autofocus>
+        <button id="botao" type="submit">Buscar</button>
+      </div>
+    </form>
+
+    <!-- O resultado ou o erro aparece aqui. -->
+    <section id="resultado" aria-live="polite"></section>
+
+    <!-- As últimas 10 buscas, da mais nova para a mais antiga. -->
+    <section class="historico" aria-labelledby="titulo-historico">
+      <h2 id="titulo-historico">Últimas buscas</h2>
+      <ol id="historico"></ol>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
