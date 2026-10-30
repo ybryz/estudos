@@ -2,12 +2,10 @@
   "name": "busca-cep-backend",
   "version": "1.0.0",
   "private": true,
-  "description": "Back-end do Busca CEP com histórico de buscas guardado em SQLite (Prisma)",
+  "description": "Back-end do Busca CEP com histórico de buscas em SQLite (Prisma)",
   "type": "module",
-  "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "node --test",
     "db:preparar": "prisma migrate deploy && prisma generate",
     "db:studio": "prisma studio --url file://./prisma/dev.db"
   },
