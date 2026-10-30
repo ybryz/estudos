@@ -1,0 +1,11 @@
+# Redis só para o estudo 07. Para subir: docker compose up -d
+# O Redis escuta na porta 6379 dentro do container; no PC ela fica na 6380,
+# para não bater com outro Redis que você já tenha rodando na 6379.
+name: estudos-redis
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: redis-estudos
+    ports:
+      - "6380:6379"
