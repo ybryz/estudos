@@ -1,4 +1,4 @@
-# Redis só para o estudo 07. Para subir: docker compose up -d
+# Redis do Busca CEP (estudos 07 e 08). Sem ele o 08 funciona, só que sem cache. Para subir: docker compose up -d
 # O Redis escuta na porta 6379 dentro do container; no PC ela fica na 6380,
 # para não bater com outro Redis que você já tenha rodando na 6379.
 name: estudos-redis

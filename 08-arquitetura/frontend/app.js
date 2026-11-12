@@ -34,7 +34,7 @@ formulario.addEventListener('submit', async (evento) => {
       <dt>Cidade</dt><dd>${esc(dados.cidade)}</dd>
       <dt>Estado</dt><dd>${esc(dados.estado)}</dd>
       <dt>Veio de</dt><dd>${dados.origem === 'cache' ? 'cache (Redis)' : 'ViaCEP'}</dd>
-      <dt>Buscas deste CEP</dt><dd>${dados.buscas} ${dados.buscas === 1 ? 'vez' : 'vezes'}</dd>
+      <dt>Buscas deste CEP</dt><dd>${dados.buscas === null ? '— (Redis desligado)' : `${dados.buscas} ${dados.buscas === 1 ? 'vez' : 'vezes'}`}</dd>
     </dl>`;
   } else {
     resultado.innerHTML = `<div class="erro">${esc(dados.erro)}</div>`;
