@@ -20,6 +20,7 @@ Repositório onde registro a minha jornada de estudos em **Ciência da Computaç
 | 06 | Banco de dados: o histórico de buscas do Busca CEP (SQLite com Prisma) | [06-banco-de-dados](./06-banco-de-dados) | ✅ Concluído |
 | 07 | Redis: cache das buscas do Busca CEP | [07-redis](./07-redis) | ✅ Concluído |
 | 08 | Arquitetura de software: monolito, monolito modular e microsserviços (Busca CEP em módulos) | [08-arquitetura](./08-arquitetura) | ✅ Concluído |
+| 09 | Segurança básica: senhas e chaves no .env, varredura do histórico e proteção do GitHub | [09-seguranca](./09-seguranca) | ✅ Concluído |
 
 > Novas demandas serão adicionadas a esta tabela conforme eu for estudando.
 
