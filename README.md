@@ -15,8 +15,11 @@ Repositório onde registro a minha jornada de estudos em **Ciência da Computaç
 | 01 | GitHub com perfil arrumado, README caprichado e o repositório `estudos` | [01-github](./01-github) | ✅ Concluído |
 | 02 | Git: resolver um conflito de merge entre duas branches | [02-git](./02-git) | ✅ Concluído |
 | 03 | Claude Code com vários terminais ao mesmo tempo (git worktree) | [03-claude-code](./03-claude-code) | ✅ Concluído |
-| 04 | N8N: com um chatbot de WhatsApp que responde por menu) | [04-n8n-whatsapp](./04-n8n-whatsapp) | ✅ Concluído |
+| 04 | N8N: um chatbot de WhatsApp que responde por menu | [04-n8n-whatsapp](./04-n8n-whatsapp) | ✅ Concluído |
 | 05 | Front-end e back-end com o Busca CEP (uma página que pede o endereço ao back-end) | [05-busca-cep](./05-busca-cep) | ✅ Concluído |
+| 06 | Banco de dados: o histórico de buscas do Busca CEP (SQLite com Prisma) | [06-banco-de-dados](./06-banco-de-dados) | ✅ Concluído |
+| 07 | Redis: cache das buscas do Busca CEP | [07-redis](./07-redis) | ✅ Concluído |
+| 08 | Arquitetura de software: monolito, monolito modular e microsserviços (Busca CEP em módulos) | [08-arquitetura](./08-arquitetura) | ✅ Concluído |
 
 > Novas demandas serão adicionadas a esta tabela conforme eu for estudando.
 
