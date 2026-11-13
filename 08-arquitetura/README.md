@@ -6,8 +6,8 @@ Neste estudo eu aprendi os três jeitos de organizar um sistema: monolito, monol
 
 | | Monolito | Monolito modular | Microsserviços |
 |---|---|---|---|
-| **Vantagens** | É facil e rapido de começar, pois é tudo em um só lugar | resolve a bagunça do monolito, cada assunto fica em uma pasta especifica, e um modulo só usa o que o outro mostra, continua snedo um sistema, só bem simples de rodar | empresa grande usa pois cada quipe do seu serviço pode se responsabilizar sem atrapalhar uns aos outros, e se um serviço cai. os outros continuam no ar |
-| **Desvantagens** | conforme cresce, vai virando bagunça, e mexer numa parte pode quebrar a outra | continua sendo um sistema só: se cair, cai tudo junto, e o banco é um só | em um projeto pequeno seria muito exagero, pois seriam varios sistemas e varios bancos para cuidas, a comunicaçao pela rede da muito trabalho para pouco ganho |
+| **Vantagens** | É fácil e rápido de começar, pois é tudo em um só lugar | resolve a bagunça do monolito: cada assunto fica em uma pasta específica, e um módulo só usa o que o outro mostra. Continua sendo um sistema só, bem simples de rodar | empresa grande usa, pois cada equipe pode cuidar do seu serviço sem atrapalhar as outras, e se um serviço cai, os outros continuam no ar |
+| **Desvantagens** | conforme cresce, vai virando bagunça, e mexer numa parte pode quebrar a outra | continua sendo um sistema só: se cair, cai tudo junto, e o banco é um só | em um projeto pequeno seria muito exagero, pois seriam vários sistemas e vários bancos para cuidar, e a comunicação pela rede dá muito trabalho para pouco ganho |
 | **Quando usar** | projeto pequeno ou duas pessoas | projeto pequeno ou duas pessoas (recomendo o modular) | empresa com dez equipes |
 
 ## A loja inventada nos três jeitos
