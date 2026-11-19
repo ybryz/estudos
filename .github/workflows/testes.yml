@@ -1,0 +1,30 @@
+# CI: roda os testes do Busca CEP (estudo 11) em todo pull request.
+# Se algum teste falhar, o check fica vermelho no PR.
+name: Testes
+
+on:
+  pull_request:
+
+jobs:
+  testes:
+    name: npm test (Busca CEP)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: 11-testes/busca-cep/backend
+    steps:
+      - name: Baixar o código do PR
+        uses: actions/checkout@v4
+
+      - name: Instalar o Node 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: 11-testes/busca-cep/backend/package-lock.json
+
+      - name: Instalar as dependências (npm ci)
+        run: npm ci
+
+      - name: Rodar os testes (npm test)
+        run: npm test
