@@ -22,6 +22,7 @@ Repositório onde registro a minha jornada de estudos em **Ciência da Computaç
 | 08 | Arquitetura de software: monolito, monolito modular e microsserviços (Busca CEP em módulos) | [08-arquitetura](./08-arquitetura) | ✅ Concluído |
 | 09 | Segurança básica: senhas e chaves no .env, varredura do histórico e proteção do GitHub | [09-seguranca](./09-seguranca) | ✅ Concluído |
 | 10 | Erros e depuração: três erros do Busca CEP e breakpoint no VS Code | [10-erros](./10-erros) | ✅ Concluído |
+| 11 | Testes automatizados: Vitest no Busca CEP e CI do GitHub Actions em todo pull request | [11-testes](./11-testes) | ✅ Concluído |
 
 > Novas demandas serão adicionadas a esta tabela conforme eu for estudando.
 
