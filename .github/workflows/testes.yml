@@ -14,10 +14,10 @@ jobs:
         working-directory: 11-testes/busca-cep/backend
     steps:
       - name: Baixar o código do PR
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Instalar o Node 24
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
