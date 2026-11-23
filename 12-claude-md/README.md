@@ -34,7 +34,7 @@ A tarefa foi colocar um botão de limpar no Busca CEP. Saíram duas branches da 
 - `feat/12-antes-pedido-ruim`: feita só com o pedido "coloca um botão de limpar no busca cep".
 - `feat/12-depois-pedido-bom`: feita com o `CLAUDE.md` e o pedido bom.
 
-As duas versões foram escritas para a comparação, uma seguindo só o pedido ruim e a outra seguindo o pedido bom. Depois testei as duas na página e com o `npm test`.
+Cada versão segue um pedido: a do antes, só o pedido ruim; a do depois, o pedido bom. Depois testei as duas na página e com o `npm test`.
 
 | | Antes | Depois |
 |---|---|---|
@@ -65,5 +65,3 @@ O diff, o teste passo a passo e todos os prints estão em [comparacao.md](compar
 5. **Acompanhar e corrigir cedo:** apertar `Esc` se ele for para o lado errado e, depois de duas correções que não deram certo, usar `/clear` e escrever um pedido melhor.
 
 Vídeo: [A Própria Anthropic Explica Como Usar o Claude Code](https://youtu.be/iMso7WbhUr0). As dicas foram tiradas da [página de boas práticas do Claude Code](https://code.claude.com/docs/en/best-practices), que o vídeo indica.
-
-> conferir com o vídeo
