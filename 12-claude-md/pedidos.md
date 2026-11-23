@@ -64,8 +64,8 @@ sair colocando cache, trocando biblioteca ou mexendo em tudo para "otimizar".
 
 > escreve o readme do estudo 12 explicando o claude.md
 
-O que falta: o README do estudos é escrito pela Gabriela, com as palavras dela. O Claude vai
-escrever um texto que não é dela e talvez ainda invente coisa que não foi feita.
+O que falta: o README do estudos é escrito por mim, com as minhas palavras. O Claude vai
+escrever um texto que não é meu e talvez ainda invente coisa que não foi feita.
 
 ### Bom
 
@@ -78,9 +78,10 @@ escrever um texto que não é dela e talvez ainda invente coisa que não foi fei
 > **O que não mexer:** não crie nem altere o `README.md`. Não mude o `CLAUDE.md` nem o Busca
 > CEP.
 >
-> **Como saber que ficou pronto:** um arquivo `12-claude-md/notas.md` com uma lista do que foi
-> feito (o que tem no CLAUDE.md, os pedidos, o que cada branch fez) e as dúvidas que o README
-> precisa responder, para eu usar como apoio. Só esse arquivo no `git status`.
+> **Como saber que ficou pronto:** um arquivo de notas em `12-claude-md/` (como o
+> `comparacao.md`) com uma lista do que foi feito (o que tem no CLAUDE.md, os pedidos, o que
+> cada branch fez) e as dúvidas que o README precisa responder, para eu usar como apoio. Só esse
+> arquivo no `git status`.
 
 ---
 
