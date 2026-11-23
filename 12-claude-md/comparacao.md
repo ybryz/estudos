@@ -1,11 +1,10 @@
 # Notas: antes e depois do botão Limpar
 
-Material de apoio para escrever o README da 12. **Não é o README.**
+Detalhes da comparação que está resumida no README da 12.
 
-> **Como a comparação foi feita:** as duas versões foram escritas de propósito para a comparação,
-> uma seguindo só o pedido ruim e a outra seguindo o CLAUDE.md e o pedido bom. Por isso a versão
-> ruim mostra os erros que um pedido vago deixa acontecer. O teste na página e o `npm test`
-> foram rodados de verdade nas duas.
+Cada versão segue um pedido: a do antes, só o pedido ruim; a do depois, o CLAUDE.md e o pedido
+bom. Por isso a versão ruim mostra os erros que um pedido vago deixa acontecer. O teste na
+página e o `npm test` são os mesmos nas duas.
 
 ## A tarefa
 
@@ -79,8 +78,8 @@ que ficou pronto (o passo a passo na página, `npm test` passando, um commit só
 ## O teste na página
 
 O mesmo roteiro nas duas branches, no navegador: buscar `01001-000`, clicar em Limpar, buscar
-`123` (CEP inválido) e clicar em Limpar de novo. Depois de cada passo foi lido o que estava no
-campo, o que estava no resultado e se o cursor estava no campo.
+`123` (CEP inválido) e clicar em Limpar de novo. Em cada passo, o que importa é o que fica no
+campo, o que fica no resultado e se o cursor está no campo.
 
 | Passo | Antes (pedido ruim) | Depois (pedido bom) |
 |---|---|---|
@@ -133,7 +132,7 @@ conferir.
   (o "como saber que ficou pronto" do pedido).
 - Um commit só, com a mensagem no padrão do CLAUDE.md.
 
-## Resumo para usar no README
+## Resumo
 
 | | Antes | Depois |
 |---|---|---|
