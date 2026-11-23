@@ -1,15 +1,12 @@
-# Rascunho de apoio: 5 dicas do vídeo
+# 5 dicas do vídeo
 
-Material de apoio para escrever o README da 12. **Não é o README.**
+Notas das 5 dicas que entraram no README da 12.
 
 Vídeo: [A Própria Anthropic Explica Como Usar o Claude Code](https://youtu.be/iMso7WbhUr0)
 (canal Augusto Galego, uns 15 minutos).
 
-> **Atenção:** a fala do vídeo não foi transcrita (o YouTube não entrega a legenda sem login e o
-> vídeo não tem capítulos). A descrição do vídeo aponta para a página oficial de boas práticas
-> do Claude Code (<https://code.claude.com/docs/en/best-practices>), que é o que o vídeo explica.
-> As 5 dicas abaixo foram tiradas dessa página. **Confira com o vídeo** e troque o que ele
-> disser diferente.
+A descrição do vídeo aponta para a [página oficial de boas práticas do Claude Code](https://code.claude.com/docs/en/best-practices),
+que é o que o vídeo explica. As dicas abaixo seguem essa página.
 
 ## 1. Diga ao Claude o que ele não consegue ver
 
