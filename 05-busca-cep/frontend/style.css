@@ -50,6 +50,10 @@ button {
 button:hover:not(:disabled) { background: #3f58d4; }
 button:disabled { opacity: 0.6; cursor: wait; }
 
+/* Botão Limpar: menos destaque que o Buscar. */
+button.secundario { color: #4f6bed; background: #fff; border: 1px solid #c5c9d8; }
+button.secundario:hover { background: #eef1fd; }
+
 #resultado { margin-top: 1.25rem; }
 
 .endereco {

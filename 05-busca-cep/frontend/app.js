@@ -4,6 +4,7 @@ const URL_BACKEND = 'http://localhost:3000';
 const formulario = document.getElementById('formulario');
 const campoCep = document.getElementById('cep');
 const botao = document.getElementById('botao');
+const botaoLimpar = document.getElementById('limpar');
 const resultado = document.getElementById('resultado');
 
 function mostrarErro(mensagem) {
@@ -71,4 +72,11 @@ formulario.addEventListener('submit', async (evento) => {
     botao.disabled = false;
     botao.textContent = 'Buscar';
   }
+});
+
+// Limpar: apaga o CEP digitado e o resultado (endereço ou erro) e volta o cursor para o campo.
+botaoLimpar.addEventListener('click', () => {
+  campoCep.value = '';
+  resultado.replaceChildren();
+  campoCep.focus();
 });
