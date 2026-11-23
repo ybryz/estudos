@@ -72,3 +72,7 @@ formulario.addEventListener('submit', async (evento) => {
     botao.textContent = 'Buscar';
   }
 });
+
+document.getElementById('limpar').addEventListener('click', () => {
+  campoCep.value = '';
+});
